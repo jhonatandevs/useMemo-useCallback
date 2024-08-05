@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+
 import Mensaje from './components/Mensaje'
 function App() {
   const [count, setCount] = useState(0)
@@ -24,17 +25,23 @@ function App() {
         </a>
       </div>
       <Mensaje texto={mensaje} />
-      <div className="card">
-        <button onClick={memoCalculateCount}>
+      <div className="card ">
+        <button className='btn btn-secondary' onClick={memoCalculateCount}>
           count is {count}
         </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <input type="text" onChange={(event) => setMensaje(event?.target?.value || '')} />
-      <div className="">
-        <button onClick={() => setCalculate(prev => prev + 1)}>Cambiar calculate</button>
+
+      <div className="row pt-4 align-items-center ">
+        <div className="col">
+          <input type="text" className='rounded custom-placeholder' placeholder='Ingrese calculate' onChange={(event) => setMensaje(event?.target?.value || '')} />
+
+        </div>
+        <div className="col">
+          <button className='btn btn-warning ' onClick={() => setCalculate(prev => prev + 1)}>Cambiar calculate</button>
+        </div>
       </div>
     </>
   )
